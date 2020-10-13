@@ -8,5 +8,13 @@ module.exports = {
     output: {
         filename: "[name].js",
         path: path.resolve("./dist")
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                use: [path.resolve('./myloader.js')]
+            }
+        ]
     }
 }
