@@ -14,6 +14,10 @@ module.exports = {
             {
                 test: /\.js$/,
                 use: [path.resolve('./myloader.js')]
+            },
+            {
+                test: /\.css$/,
+                use: ["css-loader"]
             }
         ]
     }
