@@ -21,10 +21,13 @@ module.exports = {
             },
             {
                 test: /\.png$/,
-                loader: "file-loader",
-                options: {
-                    publicPath: "./dist",
-                    name: "[name].[ext]?[hash]"
+                use: {
+                    loader: 'url-loader',
+                    options: {
+                        publicPath: './dist',
+                        name: "[name].[ext]?[hash]",
+                        limit: 5000
+                    }
                 }
             }
         ]
