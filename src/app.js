@@ -1,4 +1,4 @@
-import * as math from "./math.js"
-import "./style.css"
-
-math.sum(1, 2)
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+import './floating-labels.css'
+import './bootstrap-solid.svg'
