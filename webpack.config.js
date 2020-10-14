@@ -9,7 +9,7 @@ module.exports = {
         main: "./src/app.js",
     },
     output: {
-        filename: "[name].js",
+        filename: "js/[name].js",
         path: path.resolve("./dist")
     },
     module: {
@@ -17,20 +17,30 @@ module.exports = {
             {
                 test: /\.(css)$/,
                 // use: ['style-loader', 'css-loader']
-                use: [MiniCssExtractPlugin.loader, 'css-loader']
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            publicPath: './dist/css'
+                        }
+                    }
+                    , 'css-loader'
+                ]
             },
             {
                 test: /\.(png|svg)$/,
                 loader: 'file-loader',
                 options: {
-                    publicPath: './dist',
-                    name: '[name].[ext]?[hash]'
+                    publicPath: './dist/images',
+                    name: 'images/[name].[ext]?[hash]'
                 }
             }
         ]
     },
     plugins: [
-        new MiniCssExtractPlugin(),
+        new MiniCssExtractPlugin({
+            filename: `css/[name].css`
+        }),
         new CleanWebpackPlugin(),
     ]
 }
